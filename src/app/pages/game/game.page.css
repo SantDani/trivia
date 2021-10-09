@@ -1,0 +1,12 @@
+#play-button ion-icon {
+  margin-right: 1rem;
+}
+
+.container-play {
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=game.page.css.map */

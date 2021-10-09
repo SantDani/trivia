@@ -1,10 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>game</ion-title>
-    <ion-title>Works</ion-title>
+    <ion-title>game </ion-title>
+    <ion-buttons *ngIf="this.isPlaying" slot="start">
+      <ion-back-button defaultHref="home/game" (click)="this.isPlaying = !this.isPlaying">
+
+      </ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content >
+  <app-trivia *ngIf="isPlaying; else buttonPlay"></app-trivia>
+  <ng-template #buttonPlay>
+    <div class="ion-text-center container-play ">
+      <ion-button
+        id="play-button"
+
+
+        size="large"
+        color="warning"
+        (click)="this.play()">
+        <ion-icon name="play-outline"></ion-icon>
+        Play
+      </ion-button>
+    </div>
+  </ng-template>
 
 </ion-content>
