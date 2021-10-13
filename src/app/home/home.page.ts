@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   }
 
   goToGame(): void {
-    console.log('log - go to game');
+    // console.log('log - go to game');
     this.router.navigateByUrl('/game').then(null);
   }
 
