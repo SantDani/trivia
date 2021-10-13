@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>game </ion-title>
-    <ion-buttons *ngIf="this.isPlaying" slot="start">
-      <ion-back-button defaultHref="home/game" (click)="this.isPlaying = !this.isPlaying">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">
 
       </ion-back-button>
     </ion-buttons>
@@ -11,20 +11,6 @@
 </ion-header>
 
 <ion-content >
-  <app-trivia *ngIf="isPlaying; else buttonPlay"></app-trivia>
-  <ng-template #buttonPlay>
-    <div class="ion-text-center container-play ">
-      <ion-button
-        id="play-button"
-
-
-        size="large"
-        color="warning"
-        (click)="this.play()">
-        <ion-icon name="play-outline"></ion-icon>
-        Play
-      </ion-button>
-    </div>
-  </ng-template>
+  <app-trivia ></app-trivia>
 
 </ion-content>

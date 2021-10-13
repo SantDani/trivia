@@ -7,16 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePage implements OnInit {
 
-  isPlaying: boolean;
-  constructor() {
-    this.isPlaying = false;
-  }
+  constructor() {}
 
   ngOnInit() {
 
   }
 
-  play(): void {
-    this.isPlaying = true;
-  }
 }

@@ -5,7 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './trivia.component.html',
   styleUrls: ['./trivia.component.scss'],
 })
+
+
 export class TriviaComponent implements OnInit {
+
 
   constructor() { }
 

@@ -6,31 +6,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-title>Choose the option you prefer</ion-title>
-      <ion-button
+<ion-content [fullscreen]="true" class="main-container">
+  <section id="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-title>Choose the option you prefer</ion-title>
+        <ion-button
 
-        expand="full"
-        size="large"
-        color="warning"
-        (click)="this.goToGame()">
-        Play
-      </ion-button>
-      <ion-button
+          expand="full"
+          size="large"
+          color="warning"
+          (click)="this.goToGame()">
+          Play
+        </ion-button>
+        <ion-button
 
-        expand="full"
-        size="large"
-        color="warning"
-        (click)="this.login()">
-        LogIn
-      </ion-button>
-      <ion-card-content>
+          expand="full"
+          size="large"
+          color="warning"
+          (click)="this.login()">
+          LogIn
+        </ion-button>
+        <ion-card-content>
 
-      </ion-card-content>
-    </ion-card-header>
-  </ion-card>
-  <app-tabs></app-tabs>
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+  </section>
 </ion-content>
 
