@@ -15,7 +15,7 @@
 
           expand="full"
           size="large"
-          color="warning"
+          color="dark"
           (click)="this.goToGame()">
           Play
         </ion-button>
@@ -23,7 +23,7 @@
 
           expand="full"
           size="large"
-          color="warning"
+          color="light"
           (click)="this.login()">
           LogIn
         </ion-button>
@@ -32,6 +32,48 @@
         </ion-card-content>
       </ion-card-header>
     </ion-card>
+    <section>
+      <ion-card>
+
+        <ion-item>
+          <ion-label>Categories</ion-label>
+          <ion-select
+            interface="action-sheet"
+
+            [(ngModel)]="this.selectCategory"
+            (ionChange)="this.getCategorySelected()">
+            <ion-select-option
+              class="ion-text-wrap"
+
+              [value]="category.id"
+              *ngFor="let category of this.categories">
+              {{category.name}}
+            </ion-select-option>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Number of questions</ion-label>
+          <ion-select
+            interface="action-sheet"
+            [(ngModel)]="this.selectNumQuestions"
+            (ionChange)="this.getNumQuestions()">
+            <ion-select-option
+              class="ion-text-wrap"
+
+              [value]="num"
+              *ngFor="let num of this.numQuestions">
+              {{num}}
+            </ion-select-option>
+
+          </ion-select>
+        </ion-item>
+
+      </ion-card>
+    </section>
   </section>
+
+
 </ion-content>
 

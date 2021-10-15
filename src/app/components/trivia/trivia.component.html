@@ -1,36 +1,38 @@
 
 
-<ion-card>
-  question actual {{this.questionActual}}
-  <br>
-  Correct {{this.questionsCorrect}}
-  <br>
-  Incorrect {{this.questionsIncorrect}}
-
+<ion-card class="ion-text-center ion-text-wrap" color="Medium">
   <ion-card-header *ngIf="!this.showResults">
     <ion-card-subtitle>{{trivia?.questions[this.questionActual].category}}</ion-card-subtitle>
     <ion-card-title>{{trivia?.questions[this.questionActual].question}}</ion-card-title>
   </ion-card-header>
+
+  <!--Result-->
   <ion-card-content *ngIf="showResults; else questions">
-    Total questions{{this.totalQuestions}}
-    <br>
-    Correct {{this.questionsCorrect}}
-    <br>
-    Incorrect {{this.questionsIncorrect}}
-    <ion-button color="accent" (click)="this.playAgain()"> Play again</ion-button>
+    <p>Total questions {{this.totalQuestions}}</p>
+    <p>Correct {{this.questionsCorrect}}</p>
+
+    <p>Incorrect {{this.questionsIncorrect}}</p>
+    <ion-button color="warning" (click)="this.playAgain()"> Play again</ion-button>
   </ion-card-content>
 
 
   <ng-template #questions>
-    <ion-item
-
-      class="ion-activated"
-      *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers">
-      <!--    <ion-icon name="wifi" slot="start"></ion-icon>-->
-<!--      <ion-label (click)="this.answerQuestion(answer)">{{answer}}</ion-label>-->
-      <p (click)="this.answerQuestion(answer)">{{answer}}</p>
-    </ion-item>
+    <section class="full-width ion-text-center ">
+      <ion-button
+        class="ion-text-wrap"
+        *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers"
+        expand="full"
+        color="dark"
+        (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
+    </section>
   </ng-template>
+<!--
+  <ion-item>
+    <ion-icon name="pin" slot="start"></ion-icon>
+    <ion-label>ion-item in a card, icon left, button right</ion-label>
+    <ion-button fill="outline" slot="end">View</ion-button>
+  </ion-item>
+-->
 
 
 </ion-card>

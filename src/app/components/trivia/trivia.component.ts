@@ -18,8 +18,11 @@ export class TriviaComponent implements OnInit {
 
   showResults: boolean;
 
+  backgroundButton: boolean;
+
   constructor(private _trivia: TriviaService) {
     this.trivia = null;
+    this.backgroundButton = false;
     this.questionActual = -1;
     this.totalQuestions = -1;
     this.showResults = false;
@@ -35,8 +38,12 @@ export class TriviaComponent implements OnInit {
   }
 
   private initGame() {
+    this.getQuestions();
+  }
+
+  private getQuestions() {
     this._trivia.getQuestions().subscribe((questions: any) => {
-      console.log('log - data', questions);
+      // console.log('log - data', questions);
 
       this.trivia = new TriviaClass(questions);
 

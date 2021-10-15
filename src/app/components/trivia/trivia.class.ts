@@ -1,4 +1,4 @@
-import {QuestionModel} from './models/question.model';
+import {QuestionModel} from '../../models/question.model';
 
 export class TriviaClass {
 
