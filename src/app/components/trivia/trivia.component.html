@@ -1,35 +1,48 @@
 
 
-<ion-card class="ion-text-center ion-text-wrap" color="Medium">
-  <ion-card-header *ngIf="!this.showResults">
-    <ion-card-subtitle>{{trivia?.questions[this.questionActual].category}}</ion-card-subtitle>
-    <ion-card-title>{{trivia?.questions[this.questionActual].question}}</ion-card-title>
-  </ion-card-header>
+<section class="container-spinner center-vertical-horizontal"
+         *ngIf="this.isLoadingQuestions; else cardTrivia">
+  <ion-spinner
 
-  <!--Result-->
-  <ion-card-content *ngIf="showResults; else questions">
-    <p>Total questions {{this.totalQuestions}}</p>
-    <p>Correct {{this.questionsCorrect}}</p>
+    name="crescent"
+    >
 
-    <p>Incorrect {{this.questionsIncorrect}}</p>
-    <ion-button color="warning" (click)="this.playAgain()"> Play again</ion-button>
-  </ion-card-content>
+  </ion-spinner>
+</section>
+<ng-template #cardTrivia>
+  <ion-card class="ion-text-center ion-text-wrap center-vertical" color="Medium">
 
+    <!--Result-->
+    <ion-card-content *ngIf="showResults; else questions">
+      <p>Total questions {{this.totalQuestions}}</p>
+      <p>Correct {{this.questionsCorrect}}</p>
 
-  <ng-template #questions>
-    <section class="full-width ion-text-center ">
-      <ion-button
-        class="ion-text-wrap"
-        *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers"
-        expand="full"
-        color="dark"
-        (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
-    </section>
-  </ng-template>
-  <ion-card-content>
-    <ion-card-subtitle>Questions: {{this.questionActual + 1 }} of {{this.totalQuestions}}</ion-card-subtitle>
-    <p>Correct: {{this.questionsCorrect}}</p>
+      <p>Incorrect {{this.questionsIncorrect}}</p>
+      <ion-button color="warning" (click)="this.playAgain()"> Play again</ion-button>
+    </ion-card-content>
 
-    <p>Incorrect: {{this.questionsIncorrect}}</p>
-  </ion-card-content>
-</ion-card>
+    <!--Card Questions - Trivia -->
+    <ng-template #questions>
+      <ion-card-header >
+        <ion-card-subtitle>{{trivia?.questions[this.questionActual].category}}</ion-card-subtitle>
+        <ion-card-title class="ion-text-justify">{{trivia?.questions[this.questionActual].question}}</ion-card-title>
+      </ion-card-header>
+
+      <section class="full-width ion-text-center ">
+        <ion-button
+          class="ion-text-wrap"
+          *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers"
+          expand="full"
+          color="dark"
+          (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
+      </section>
+      <ion-card-content>
+        <ion-card-subtitle>Questions: {{this.questionActual + 1 }} of {{this.totalQuestions}}</ion-card-subtitle>
+        <p>Correct: {{this.questionsCorrect}}</p>
+
+        <p>Incorrect: {{this.questionsIncorrect}}</p>
+      </ion-card-content>
+    </ng-template>
+
+  </ion-card>
+</ng-template>

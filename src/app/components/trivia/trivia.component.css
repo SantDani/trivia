@@ -1,19 +1,18 @@
-ion-spinner{
+ion-spinner {
   width: 50%;
   height: 50%;
 }
 
-.center-vertical-horizontal{
+.center-vertical-horizontal {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   align-items: center;
-
 }
 
-.center-vertical{
+.center-vertical {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -21,7 +20,8 @@ ion-spinner{
   justify-content: center;
 }
 
-ion-card{
-  //width: 50%;
+ion-card {
   align-items: stretch;
 }
+
+/*# sourceMappingURL=trivia.component.css.map */

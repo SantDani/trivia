@@ -19,6 +19,7 @@ export class TriviaComponent implements OnInit {
   showResults: boolean;
 
   backgroundButton: boolean;
+  private isLoadingQuestions: boolean;
 
   constructor(private _trivia: TriviaService) {
     this.trivia = null;
@@ -29,8 +30,7 @@ export class TriviaComponent implements OnInit {
 
     this.questionsCorrect = -1;
     this.questionsIncorrect = -1;
-
-
+    this.isLoadingQuestions = false;
   }
 
   ngOnInit() {
@@ -42,11 +42,13 @@ export class TriviaComponent implements OnInit {
   }
 
   private getQuestions() {
+
+    this.isLoadingQuestions = true;
     this._trivia.getQuestions().subscribe((questions: any) => {
       // console.log('log - data', questions);
 
       this.trivia = new TriviaClass(questions);
-
+      this.isLoadingQuestions = false;
       if (this.trivia == null) {
         console.error('Error trivia empty or null');
         return;
