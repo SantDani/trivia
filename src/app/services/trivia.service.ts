@@ -20,7 +20,6 @@ export class TriviaService {
 
     this.numQuestions = 10;
     this.categoryActual = 0;
-
   }
 
   getQuestions(): Observable<any>{

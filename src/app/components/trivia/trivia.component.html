@@ -26,13 +26,10 @@
         (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
     </section>
   </ng-template>
-<!--
-  <ion-item>
-    <ion-icon name="pin" slot="start"></ion-icon>
-    <ion-label>ion-item in a card, icon left, button right</ion-label>
-    <ion-button fill="outline" slot="end">View</ion-button>
-  </ion-item>
--->
+  <ion-card-content>
+    <ion-card-subtitle>Questions: {{this.questionActual + 1 }} of {{this.totalQuestions}}</ion-card-subtitle>
+    <p>Correct: {{this.questionsCorrect}}</p>
 
-
+    <p>Incorrect: {{this.questionsIncorrect}}</p>
+  </ion-card-content>
 </ion-card>
