@@ -31,7 +31,7 @@
       <section class="full-width ion-text-center ">
         <ion-button
 
-          appCorrectIncorrect
+          [appCorrectIncorrect]="{question: answer}"
           *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers"
           expand="block"
           color="dark"

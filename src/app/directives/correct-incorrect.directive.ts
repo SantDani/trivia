@@ -11,7 +11,7 @@ export class CorrectIncorrectDirective {
     this.correct = true;
 
     this.background = {
-      color: 'success',
+      question: {},
     };
   }
 
