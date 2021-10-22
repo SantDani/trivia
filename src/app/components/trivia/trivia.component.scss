@@ -25,3 +25,15 @@ ion-card{
   //width: 50%;
   align-items: stretch;
 }
+
+.card-button-warp{
+  overflow-wrap: anywhere;
+}
+
+.correct{
+  background-color: lightgreen;
+}
+
+.incorrect{
+  background-color: lightcoral;
+}

@@ -30,11 +30,17 @@
 
       <section class="full-width ion-text-center ">
         <ion-button
-          class="ion-text-wrap"
+
+
           *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers"
-          expand="full"
+          expand="block"
           color="dark"
+          size="large"
           (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
+        <ion-button
+          expand="block"
+          size="large"
+        >Esto es un mensaje largo para</ion-button>
       </section>
       <ion-card-content>
         <ion-card-subtitle>Questions: {{this.questionActual + 1 }} of {{this.totalQuestions}}</ion-card-subtitle>

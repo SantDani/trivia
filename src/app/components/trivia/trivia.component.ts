@@ -67,22 +67,25 @@ export class TriviaComponent implements OnInit {
 
 
     if(this.trivia.questions[this.questionActual].correctAnswer === answer){
-      console.log('log - correct');
+      // console.log('log - correct');
       this.questionsCorrect++;
     }else{
-      console.log('log - incorrect');
+      // console.log('log - incorrect');
       this.questionsIncorrect++;
     }
 
-
     if(this.questionActual >= this.totalQuestions-1){
       // end game
-      console.log('log - end game');
+      // console.log('log - end game');
       this.showResults = true;
       return;
     }
-    this.questionActual++;
+    // this.nextQuestion();
 
+  }
+
+  private nextQuestion() {
+    this.questionActual++;
   }
 
   private playAgain(): void {

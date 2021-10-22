@@ -24,4 +24,16 @@ ion-card {
   align-items: stretch;
 }
 
+.card-button-warp {
+  overflow-wrap: anywhere;
+}
+
+.correct {
+  background-color: lightgreen;
+}
+
+.incorrect {
+  background-color: lightcoral;
+}
+
 /*# sourceMappingURL=trivia.component.css.map */
