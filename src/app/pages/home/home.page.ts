@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {CategoryModel} from "../models/category.model";
-import {TriviaService} from "../services/trivia.service";
+import {CategoryModel} from "../../models/category.model";
+import {TriviaService} from "../../services/trivia.service";
 
 
 @Component({
