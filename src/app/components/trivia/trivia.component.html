@@ -31,16 +31,16 @@
       <section class="full-width ion-text-center ">
         <ion-button
 
-
+          appCorrectIncorrect
           *ngFor="let answer of this.trivia?.questions[this.questionActual].allAnswers"
           expand="block"
           color="dark"
           size="large"
           (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
-        <ion-button
+        <!--<ion-button
           expand="block"
           size="large"
-        >Esto es un mensaje largo para</ion-button>
+        >Esto es un mensaje largo para</ion-button>-->
       </section>
       <ion-card-content>
         <ion-card-subtitle>Questions: {{this.questionActual + 1 }} of {{this.totalQuestions}}</ion-card-subtitle>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { GamePage } from './game.page';
+import {CorrectIncorrectDirective} from "../../directives/correct-incorrect.directive";
 
 const routes: Routes = [
   {
@@ -11,7 +12,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule, CorrectIncorrectDirective],
+    declarations: [
+        CorrectIncorrectDirective
+    ]
 })
 export class GamePageRoutingModule {}

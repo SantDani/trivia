@@ -1,36 +1,32 @@
-import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
 
 
 @Directive({
   selector: '[appCorrectIncorrect]'
 })
 export class CorrectIncorrectDirective {
-  // DELAY = 300;
+  DELAY = 300;
   correct: boolean;
   constructor(private elem: ElementRef, private  renderer: Renderer2) {
     this.correct = true;
+
+    this.background = {
+      color: 'success',
+    };
   }
 
   @HostListener('click')
   async onMouseClick(): Promise<void> {
 
     if (this.correct) {
-      this.renderer.setStyle(this.elem.nativeElement, 'background-color', 'green');
-      // await this.delay(300);
+      this.renderer.setAttribute(this.elem.nativeElement, 'color', this.isCorrect(this.background));
     } else {
-      this.renderer.setStyle(this.elem.nativeElement, 'background-color', 'red');
+      this.renderer.setAttribute(this.elem.nativeElement, 'color', this.isCorrect(this.background));
     }
-
-
-    // this.correct;
-    //this.renderer.setStyle(this.elem.nativeElement, 'border', this.configV2.borderNoHover);
-    // this.isHover = 'noHover';
-
-    console.log('click');
-
   }
 
-   delay(ms: number): any {
-    return new Promise( resolve => setTimeout(resolve, ms));
+  isCorrect(result: boolean): string{
+    return result ? 'success': 'danger';
   }
+  @Input('appCorrectIncorrect') background: any;
 }

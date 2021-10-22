@@ -59,7 +59,10 @@ export class TriviaComponent implements OnInit {
       this.questionsCorrect = 0;
       this.questionsIncorrect = 0;
 
+      console.log('log - questions', questions);
     });
+
+
   }
 
   private answerQuestion(answer: string): void {
@@ -80,11 +83,12 @@ export class TriviaComponent implements OnInit {
       this.showResults = true;
       return;
     }
-    // this.nextQuestion();
+    this.nextQuestion();
 
   }
 
-  private nextQuestion() {
+  private async nextQuestion() {
+    await this.delay(300);
     this.questionActual++;
   }
 
@@ -92,5 +96,9 @@ export class TriviaComponent implements OnInit {
     this.initGame();
     this.trivia = null;
     this.showResults = false;
+  }
+
+  private delay(ms: number): any {
+    return new Promise( resolve => setTimeout(resolve, ms));
   }
 }

@@ -12,7 +12,7 @@ export class QuestionModel{
 
 
     this.category = this.convertSpecialChar(question.category);
-    this.correctAnswer = this.convertSpecialChar(question.category);
+    this.correctAnswer = this.convertSpecialChar(question.correct_answer);
     this.difficulty = question.difficulty;
     this.incorrectAnswers = this.convertSpecialCharArray(question.incorrect_answers);
     this.question = this.convertSpecialChar(question.question);
@@ -20,7 +20,7 @@ export class QuestionModel{
 
     this.allAnswers = this.convertSpecialCharArray(question.incorrect_answers);;
     this.allAnswers.push(this.correctAnswer);
-    // console.log('log - this model question', this);
+    console.log('log - this model question', this.allAnswers);
   }
 
 
@@ -31,5 +31,9 @@ export class QuestionModel{
 
   convertSpecialCharArray(text: string[]): string[]{
     return text.map(answer => this.convertSpecialChar(answer));
+  }
+
+  isCorrect(answer: string): boolean {
+    return this.correctAnswer === answer;
   }
 }
