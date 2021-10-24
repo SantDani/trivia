@@ -36,11 +36,12 @@
           expand="block"
           color="dark"
           size="large"
-          (click)="this.answerQuestion(answer)">{{answer}}</ion-button>
-        <!--<ion-button
-          expand="block"
-          size="large"
-        >Esto es un mensaje largo para</ion-button>-->
+          (click)="this.answerQuestion(answer)">
+          <span
+            [ngClass]="{'card-button-warp': this.answer.length > 28}"
+          >{{answer}}</span>
+        </ion-button>
+
       </section>
       <ion-card-content>
         <ion-card-subtitle>Questions: {{this.questionActual + 1 }} of {{this.totalQuestions}}</ion-card-subtitle>

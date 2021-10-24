@@ -25,7 +25,9 @@ ion-card {
 }
 
 .card-button-warp {
-  overflow-wrap: anywhere;
+  white-space: break-spaces;
+  height: fit-content;
+  top: 1rem;
 }
 
 .correct {
