@@ -18,7 +18,12 @@
       <p>Correct {{this.questionsCorrect}}</p>
 
       <p>Incorrect {{this.questionsIncorrect}}</p>
-      <ion-button color="warning" (click)="this.playAgain()"> Play again</ion-button>
+      <ion-button
+        expand="full"
+        size="large"
+        color="warning"
+        (click)="this.playAgain()">
+        Play again</ion-button>
     </ion-card-content>
 
     <!--Card Questions - Trivia -->
