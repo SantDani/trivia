@@ -20,7 +20,9 @@ export class QuestionModel{
 
     this.allAnswers = this.convertSpecialCharArray(question.incorrect_answers);;
     this.allAnswers.push(this.correctAnswer);
-    console.log('log - this model question', this.allAnswers);
+
+    this.allAnswers = this.getQuestionsRandom();
+    // console.log('log - this model question', this.allAnswers);
   }
 
 
@@ -34,6 +36,26 @@ export class QuestionModel{
   }
 
   isCorrect(answer: string): boolean {
+    // console.log('log - answer', answer);
     return this.correctAnswer === answer;
+  }
+
+  /**
+   *
+   * Math.random() - 0.5: returns a value between -0.5 and 0.5
+   *
+   * If the result of this operation is < 0, the element a is put to an index lower than b,
+   * and the opposite if the result is > 0.
+   */
+  private getQuestionsRandom(): string[]{
+
+    // const randomQuestions = this.allAnswers.sort(() => Math.floor(Math.random() - 0.5));
+    // console.log('log - randomQuestions', randomQuestions);
+    // console.log('log - correctAnswer', this.correctAnswer);
+    return this.allAnswers.sort(() => Math.floor(Math.random() - 0.5));;
+  }
+
+  public getQuestions(): string[]{
+    return this.getQuestions();
   }
 }

@@ -5,28 +5,20 @@ import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/co
   selector: '[appCorrectIncorrect]'
 })
 export class CorrectIncorrectDirective {
-  DELAY = 300;
-  correct: boolean;
-  constructor(private elem: ElementRef, private  renderer: Renderer2) {
-    this.correct = true;
 
-    this.background = {
-      question: {},
+  constructor(private elem: ElementRef, private  renderer: Renderer2) {
+    this.response = {
+      isCorrect: false
     };
   }
 
   @HostListener('click')
   async onMouseClick(): Promise<void> {
-
-    if (this.correct) {
-      this.renderer.setAttribute(this.elem.nativeElement, 'color', this.isCorrect(this.background));
-    } else {
-      this.renderer.setAttribute(this.elem.nativeElement, 'color', this.isCorrect(this.background));
-    }
+    this.renderer.setAttribute(this.elem.nativeElement, 'color', this.isCorrect(this.response.isCorrect));
   }
 
-  isCorrect(result: boolean): string{
-    return result ? 'success': 'danger';
+  isCorrect(isCorrect: boolean): string{
+    return isCorrect ? 'success': 'danger';
   }
-  @Input('appCorrectIncorrect') background: any;
+  @Input('appCorrectIncorrect') response: any;
 }

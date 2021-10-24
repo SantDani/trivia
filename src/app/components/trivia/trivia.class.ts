@@ -10,5 +10,8 @@ export class TriviaClass {
 
     // console.log('log - questions in trivia Class', responseQuestions);
     responseQuestions.results.forEach( question => this.questions.push(new QuestionModel(question)));
+
+
   }
+
 }

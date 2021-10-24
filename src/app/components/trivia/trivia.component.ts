@@ -35,6 +35,8 @@ export class TriviaComponent implements OnInit {
 
   ngOnInit() {
     this.initGame();
+
+    this.trivia
   }
 
   private initGame() {
@@ -59,7 +61,7 @@ export class TriviaComponent implements OnInit {
       this.questionsCorrect = 0;
       this.questionsIncorrect = 0;
 
-      console.log('log - questions', questions);
+      // console.log('log - questions', questions);
     });
 
 
@@ -67,9 +69,7 @@ export class TriviaComponent implements OnInit {
 
   private answerQuestion(answer: string): void {
 
-
-
-    if(this.trivia.questions[this.questionActual].correctAnswer === answer){
+    if(this.trivia.questions[this.questionActual].isCorrect(answer)){
       // console.log('log - correct');
       this.questionsCorrect++;
     }else{
@@ -83,7 +83,7 @@ export class TriviaComponent implements OnInit {
       this.showResults = true;
       return;
     }
-    this.nextQuestion();
+    this.nextQuestion().catch(e => console.error(e));
 
   }
 
